@@ -26,3 +26,8 @@
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/fransolerc/DigimonWorldRemake.git
+   
+
+## Enlaces
+
+- https://www.phoenix-staffel.de/digimon/DigimonWorld/
