@@ -1,0 +1,6 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow,"ShowTextBox","ToyAgumon","NSLOCTEXT(""[2DE666F743FFBD84702E3E90A1B0349B]"", ""603BAA414739A702B633A6AE2D3DF13E"", ""Your chances of winning are slim to none!"")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_1,"fadeOut HUD","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_2,"Delay","None","","!=","0","0","0","","False","0.200000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_0,"start Battle","None","","!=","0","0","0","","True","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_3,"End Dialogue","None","","!=","0","0","0","","True","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"

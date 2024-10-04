@@ -1,0 +1,3 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow,"ShowTextBox","None","NSLOCTEXT(""[4A49EB0D4B57DAC853024987595C8666]"", ""450623FD46238FB7E2A40FA8EE209A92"", ""East: Native Forest{LineBreak}West: Gear Savanna"")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_0,"End Dialogue","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"

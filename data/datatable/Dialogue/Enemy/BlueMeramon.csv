@@ -1,0 +1,6 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow,"ShowTextBox","BlueMeramon","NSLOCTEXT(""[EF9F240D46400BB4E2C22397A4A5A655]"", ""BFE6B3794E16D4EA661BEF8CDC8C9B8E"", ""That\'s useless, don\'t you think?"")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_1,"fadeOut HUD","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_2,"Delay","None","","!=","0","0","0","","False","0.200000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_0,"start Battle","None","","!=","0","1","0","","True","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_3,"End Dialogue","None","","!=","0","0","0","","True","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"

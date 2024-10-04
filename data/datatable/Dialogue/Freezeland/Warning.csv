@@ -1,0 +1,3 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow,"ShowTextBox","None","NSLOCTEXT(""[C0B8F31243AE9820AABC79A69455F014]"", ""0B6067804B49D0A59F4418A57091BCE4"", ""Very cold beyond here. Unless <Warning>he can stand cold</> don\'t enter."")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_0,"End Dialogue","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"

@@ -1,0 +1,6 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow,"ShowTextBox","Tankmon","NSLOCTEXT(""[716E01C545F61B53A38CA7A00DB70608]"", ""8C5387854088418C468593976783A718"", ""I confirmed the enemy\'s invasion!"")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_1,"fadeOut HUD","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_2,"Delay","None","","!=","0","0","0","","False","0.200000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_0,"start Battle","None","","!=","0","1","0","","True","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_3,"End Dialogue","None","","!=","0","0","0","","True","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"

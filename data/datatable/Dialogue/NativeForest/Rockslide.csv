@@ -1,0 +1,2 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow,"ShowTextBox","Player","NSLOCTEXT(""[D462FE86404A5A5AED76228BEDB18A9C]"", ""3CBDD899434A472D534349BE1EA5253E"", ""Rockslide blocked the road..."")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"

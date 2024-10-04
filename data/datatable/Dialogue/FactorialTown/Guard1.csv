@@ -1,0 +1,4 @@
+---,Condition,Name,Text,Operator,If Value,If Output,Jump To Line,Switch,Boolean,Float,Give Items,Selection,Location,Rotation,Widget Position,play Sound,DataTable
+NewRow_0,"Play Sound","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","/Script/Engine.SoundWave'/Game/Audio/SFX/DigimonVoices/Guardromon.Guardromon'","None"
+NewRow,"ShowTextBox","Guardromon","NSLOCTEXT(""[C99711424E32CB42D8B0E4A42A2031DB]"", ""D00B34EB4AC277BDAA53B79D0B571C1D"", ""You can\'t get thru here."")","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
+NewRow_1,"End Dialogue","None","","!=","0","0","0","","False","0.000000","()","()","(X=0.000000,Y=0.000000,Z=0.000000)","(Pitch=0.000000,Yaw=0.000000,Roll=0.000000)","VAlign_Bottom","None","None"
