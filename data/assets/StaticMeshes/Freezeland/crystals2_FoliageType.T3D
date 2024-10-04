@@ -1,0 +1,14 @@
+Begin Object Class=/Script/Foliage.FoliageType_InstancedStaticMesh Name="crystals2_FoliageType" ExportPath="/Script/Foliage.FoliageType_InstancedStaticMesh'/Game/StaticMeshes/Freezeland/crystals2_FoliageType.crystals2_FoliageType'"
+   Mesh="/Script/Engine.StaticMesh'/Game/StaticMeshes/Freezeland/crystals2.crystals2'"
+   UpdateGuid=F4C3DC4D4F3E7B9FF3E587978EC8A28A
+   ScaleX=(Min=0.700000)
+   ZOffset=(Min=-200.000000)
+   GroundSlopeAngle=(Max=80.000000)
+   MeshBounds=(Origin=(X=-13.829407,Y=-53.074905,Z=506.464783),BoxExtent=(X=356.137451,Y=176.178314,Z=533.057312),SphereRadius=631.722717)
+   LowBoundOriginRadius=(X=13.948990,Y=-32.250008,Z=313.826385)
+   CullDistance=(Max=20000)
+   BodyInstance=(CollisionEnabled=QueryAndPhysics,CollisionProfileName="BlockAll",CollisionResponses=(ResponseArray=))
+   ScaleCurve=(EditorCurveData=())
+   DensityFalloff=(FalloffCurve=(EditorCurveData=()))
+   bIncludeInHLOD=False
+End Object
