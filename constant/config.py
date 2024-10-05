@@ -9,4 +9,4 @@ FONT_TYPE = None
 
 MENU_OPTIONS = ["New Game", "Continue Game"]
 
-FPS = 60
+FPS = 30

@@ -1,6 +1,7 @@
 import csv
 import os
 import re
+import time
 from model.GameDataManager import GameDataManager
 
 
@@ -9,6 +10,7 @@ class DialogueReader:
         self.file_path = file_path
         self.dialogues = []
         self.current_index = 0
+        self.delays = 0.0
         self.game_data_manager = game_data_manager_object
 
     def read_dialogue_csv(self):
@@ -20,12 +22,13 @@ class DialogueReader:
             with open(self.file_path, newline='', encoding='utf-8') as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
-                    if 'Text' in row and row['Text'].strip():
-                        condition = row.get('Condition', '').strip()
-                        npc_name = row.get('Name', '').strip()
-                        text = row['Text']
+                    condition = row.get('Condition', '').strip()
+                    self.delays = 0.0
 
-                        if condition == 'ShowTextBox':
+                    if condition == 'ShowTextBox':
+                        if 'Text' in row and row['Text'].strip():
+                            npc_name = row.get('Name', '').strip()
+                            text = row['Text']
                             match = re.search(r'NSLOCTEXT\(\s*"[^"]*"\s*,\s*"[^"]*"\s*,\s*"([^"]*)"\s*\)', text)
                             if match:
                                 extracted_text = match.group(1)
@@ -35,6 +38,11 @@ class DialogueReader:
                                 print(f"{npc_name}: {processed_text}")
 
                                 self.dialogues.append((npc_name, processed_text.strip()))
+
+                    if condition == 'Delay':
+                        self.delays = float(row['Float'])
+                        time.sleep(self.delays)
+
         except Exception as e:
             print(f"Error al leer el archivo: {e}")
 
