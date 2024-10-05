@@ -7,7 +7,8 @@ from utils import TextUtils
 class ItemReader:
     def __init__(self, file_path):
         self.file_path = file_path
-        self.items = []
+        self.items_list = []
+        self.read_items()
 
     def read_items(self):
         try:
@@ -56,53 +57,29 @@ class ItemReader:
                     price_money=row['Price Money'],
                     merit_value=row['Merit Value']
                 )
-                self.items.append(item)
+                self.items_list.append(item)
 
         except FileNotFoundError:
-            print(f"Error: El archivo {datatables.ITEM} no se encontró.")
+            print(f"Error: {datatables.ITEM} not exists.")
         except pd.errors.EmptyDataError:
-            print("Error: El archivo CSV está vacío.")
+            print("Error: CSV Empty.")
         except Exception as e:
             print(f"Error al leer el archivo CSV: {e}")
 
-    def get_items(self):
-        return self.items
-
     def get_item_by_index(self, index):
-        if 0 <= index < len(self.items):
-            return self.items[index]
+        if 0 <= index < len(self.items_list):
+            return self.items_list[index]
         else:
             raise IndexError("Item Index Error.")
 
     def print_items(self):
-        for item in self.items:
+        for item in self.items_list:
             print(f"Name: {item.name}")
             print(f"Description: {item.description}")
-            print(f"Digivolution: {item.digivolution}")
             print(f"Type: {item.item_type}")
-            print(f"Color: {item.color}")
-            print(f"Sorting Value: {item.sorting_value}")
-            print(f"Weight: {item.weight}")
-            print(f"Energy: {item.energy}")
-            print(f"Happiness: {item.happiness}")
-            print(f"Discipline: {item.discipline}")
-            print(f"Tiredness: {item.tiredness}")
-            print(f"Sickness: {item.sickness}")
-            print(f"Heal HP: {item.heal_hp}")
-            print(f"Heal MP: {item.heal_mp}")
-            print(f"Increase HP: {item.increase_hp}")
-            print(f"Increase MP: {item.increase_mp}")
-            print(f"Increase Offense: {item.increase_offense}")
-            print(f"Increase Defense: {item.increase_defense}")
-            print(f"Increase Speed: {item.increase_speed}")
-            print(f"Increase Brains: {item.increase_brains}")
-            print(f"Increase Lifetime: {item.increase_lifetime}")
-            print(f"Price Money: {item.price_money}")
-            print(f"Merit Value: {item.merit_value}")
-            print("----------")
+            print("---------------------------------------------------------------------------")
 
 
 if __name__ == "__main__":
     item_reader = ItemReader('../assets/data/datatable/Item/Info.csv')
-    item_reader.read_items()
     item_reader.print_items()
