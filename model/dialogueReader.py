@@ -91,7 +91,7 @@ if __name__ == "__main__":
     dialogue_reader.read_dialogue_csv()
 
     while True:
-        input("Press Enter (Debug Mode).")
+        input("Press Enter:")
         dialogue = dialogue_reader.get_next_dialogue()
         if dialogue is not None:
             print(dialogue)
