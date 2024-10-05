@@ -1,22 +1,23 @@
 import pygame
 from constant import colors, config, dialogue
 from model.dialogueReader import DialogueReader
-from main import AudioManager
+from main import AudioManager, GameDataManager
 
 pygame.init()
 
 audio_manager = AudioManager()
+game_data_manager = GameDataManager()
 
 screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
 pygame.display.set_caption(config.GAME_TITLE)
 
-font = pygame.font.Font(config.FONT_TYPE, config.FONT_SIZE)
+font = pygame.font.Font(config.FONT_TYPE, config.FONT_SIZE_SMALL)
 
 clock = pygame.time.Clock()
 
 
 def start_new_game():
-    intro_dialogue = DialogueReader(dialogue.INTRO)
+    intro_dialogue = DialogueReader(dialogue.INTRO, game_data_manager)
     intro_dialogue.read_dialogue_csv()
 
     screen.fill(colors.BLACK)
@@ -34,8 +35,17 @@ def start_new_game():
                     else:
                         running = False
 
-        text_surface = font.render(intro_dialogue.get_current_line() or "", True, colors.WHITE)
+        screen.fill(colors.BLACK)
+
+        current_line = intro_dialogue.get_current_line()
+
+        if current_line is not None and len(current_line) > 1:
+            text_surface = font.render(current_line[1] or "", True, colors.WHITE)
+        else:
+            text_surface = font.render("", True, colors.WHITE)
+
         screen.blit(text_surface, (50, 50))
+
         pygame.display.flip()
         clock.tick(config.FPS)
 

@@ -14,7 +14,7 @@ background_image = pygame.transform.scale(resources.BACKGROUND_IMAGE, (config.SC
 screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
 pygame.display.set_caption(config.GAME_TITLE)
 
-font = pygame.font.Font(config.FONT_TYPE, config.FONT_SIZE)
+font = pygame.font.Font(config.FONT_TYPE, config.FONT_SIZE_LARGE)
 
 selected_option = 0
 
