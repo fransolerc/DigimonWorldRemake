@@ -1,36 +1,26 @@
 import pygame
-import csv  # Asegúrate de importar csv
-from model import colors, config
+from constant import colors, config, dialogue
 from model.dialogueReader import DialogueReader
+from main import AudioManager
 
 pygame.init()
 
-screen = pygame.display.set_mode((config.screen_width, config.screen_height))
-pygame.display.set_caption(config.game_title)
+audio_manager = AudioManager()
 
-font = pygame.font.Font(config.font_type, config.font_size)
+screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+pygame.display.set_caption(config.GAME_TITLE)
 
-selected_option = 0
+font = pygame.font.Font(config.FONT_TYPE, config.FONT_SIZE)
+
 clock = pygame.time.Clock()
-
-dialogue_reader = DialogueReader("assets/data/datatable/Dialogue/Intro.csv")
-dialogue_lines = []  # Almacena las líneas del diálogo
-
-
-# Leer el diálogo y almacenar las líneas en una lista
-def load_dialogue():
-    with open(dialogue_reader.file_path, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            if 'Text' in row:
-                dialogue_lines.append(row['Text'])
-                print("Texto cargado:", row['Text'])
 
 
 def start_new_game():
-    load_dialogue()
+    intro_dialogue = DialogueReader(dialogue.INTRO)
+    intro_dialogue.read_dialogue_csv()
+
+    screen.fill(colors.BLACK)
     running = True
-    index = 0
 
     while running:
         for event in pygame.event.get():
@@ -38,19 +28,14 @@ def start_new_game():
                 running = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
-                    index += 1
-                    if index >= len(dialogue_lines):
-                        index = 0
+                    audio_manager.play_button_open()
+                    if intro_dialogue.get_current_line() is not None:
+                        intro_dialogue.advance_line()
+                    else:
+                        running = False
 
-        screen.fill(colors.BLACK)
-
-        if index < len(dialogue_lines):
-            text = font.render(dialogue_lines[index], True, colors.WHITE)
-            text_rect = text.get_rect(center=(config.screen_width / 2, config.screen_height / 2))
-            screen.blit(text, text_rect)
-        else:
-            print("Índice fuera de rango, no se puede mostrar texto.")
-
+        text_surface = font.render(intro_dialogue.get_current_line() or "", True, colors.WHITE)
+        screen.blit(text_surface, (50, 50))
         pygame.display.flip()
         clock.tick(config.FPS)
 

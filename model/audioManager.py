@@ -1,4 +1,5 @@
 import pygame
+from constant.audio import UI_BUTTON_HOVER, UI_BUTTON_OPEN
 
 
 class AudioManager:
@@ -14,12 +15,12 @@ class AudioManager:
         if self._initialized:
             return
         pygame.mixer.init()
-        self.ui_button_hover = pygame.mixer.Sound('assets/audio/UI_Button_Hover.WAV')
-        self.ui_button_open = pygame.mixer.Sound('assets/audio/UI_Button_Open.WAV')
         self._initialized = True
 
-    def play_button_hover(self):
-        self.ui_button_hover.play()
+    @staticmethod
+    def play_button_hover():
+        UI_BUTTON_HOVER.play()
 
-    def play_button_open(self):
-        self.ui_button_open.play()
+    @staticmethod
+    def play_button_open():
+        UI_BUTTON_OPEN.play()
