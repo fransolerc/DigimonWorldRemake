@@ -8,6 +8,3 @@ FONT_TYPE = None
 MENU_OPTIONS = ["New Game", "Continue Game"]
 
 FPS = 60
-
-PLAYER_NAME = ""
-PARTNER_NAME = ""

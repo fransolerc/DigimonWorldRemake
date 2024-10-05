@@ -1,7 +1,7 @@
 import csv
 import os
 import re
-from model.GameManager import GameDataManager
+from model.GameDataManager import GameDataManager
 
 
 class DialogueReader:
@@ -21,19 +21,26 @@ class DialogueReader:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     if 'Text' in row and row['Text'].strip():
+                        condition = row.get('Condition', '').strip()
+                        npc_name = row.get('Name', '').strip()
                         text = row['Text']
-                        match = re.search(r'NSLOCTEXT\(\s*"[^"]*"\s*,\s*"[^"]*"\s*,\s*"([^"]*)"\s*\)', text)
-                        if match:
-                            extracted_text = match.group(1)
-                            extracted_text = extracted_text.replace("\\'", "'")
-                            processed_text = self.replace_variables(extracted_text)
-                            self.dialogues.append(processed_text.strip())
+
+                        if condition == 'ShowTextBox':
+                            match = re.search(r'NSLOCTEXT\(\s*"[^"]*"\s*,\s*"[^"]*"\s*,\s*"([^"]*)"\s*\)', text)
+                            if match:
+                                extracted_text = match.group(1)
+                                extracted_text = extracted_text.replace("\\'", "'")
+                                processed_text = self.replace_variables(extracted_text)
+
+                                print(f"{npc_name}: {processed_text}")
+
+                                self.dialogues.append((npc_name, processed_text.strip()))
         except Exception as e:
             print(f"Error al leer el archivo: {e}")
 
     def replace_variables(self, text):
         player_name = self.game_data_manager.get_player_name() or "Player"
-        partner_name = self.game_data_manager.get_companion_name() or "Partner"
+        partner_name = self.game_data_manager.get_partner_name() or "Partner"
 
         text = text.replace("{Player}", player_name)
         text = text.replace("{Partner}", partner_name)
@@ -62,7 +69,7 @@ class DialogueReader:
 if __name__ == "__main__":
     game_data_manager = GameDataManager()
 
-    dialogue_reader = DialogueReader("../assets/data/datatable/Dialogue/Intro.csv", game_data_manager)
+    dialogue_reader = DialogueReader("../assets/data/datatable/Dialogue/Intro2.csv", game_data_manager)
     dialogue_reader.read_dialogue_csv()
 
     while True:
