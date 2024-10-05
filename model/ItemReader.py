@@ -105,5 +105,4 @@ class ItemReader:
 if __name__ == "__main__":
     item_reader = ItemReader('../assets/data/datatable/Item/Info.csv')
     item_reader.read_items()
-    new_item = item_reader.get_item_by_index(3)
-    print(new_item)
+    item_reader.print_items()
