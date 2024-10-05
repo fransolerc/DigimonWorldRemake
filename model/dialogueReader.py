@@ -1,8 +1,9 @@
-import csv
 import os
-import re
 import time
+import pandas as pd
+
 from model.GameDataManager import GameDataManager
+from utils import TextUtils
 
 
 class DialogueReader:
@@ -15,36 +16,45 @@ class DialogueReader:
 
     def read_dialogue_csv(self):
         if not os.path.exists(self.file_path):
-            print(f"El archivo '{self.file_path}' no existe.")
+            print(f"{self.file_path}' not exists.")
             return
 
         try:
-            with open(self.file_path, newline='', encoding='utf-8') as csvfile:
-                reader = csv.DictReader(csvfile)
-                for row in reader:
-                    condition = row.get('Condition', '').strip()
-                    self.delays = 0.0
+            df = pd.read_csv(self.file_path)
 
-                    if condition == 'ShowTextBox':
-                        if 'Text' in row and row['Text'].strip():
-                            npc_name = row.get('Name', '').strip()
-                            text = row['Text']
-                            match = re.search(r'NSLOCTEXT\(\s*"[^"]*"\s*,\s*"[^"]*"\s*,\s*"([^"]*)"\s*\)', text)
-                            if match:
-                                extracted_text = match.group(1)
-                                extracted_text = extracted_text.replace("\\'", "'")
-                                processed_text = self.replace_variables(extracted_text)
+            required_columns = ['Condition', 'Name', 'Text', 'Float']
+            for column in required_columns:
+                if column not in df.columns:
+                    raise ValueError(f"Missing column in CSV: {column}")
 
-                                print(f"{npc_name}: {processed_text}")
-
-                                self.dialogues.append((npc_name, processed_text.strip()))
-
-                    if condition == 'Delay':
-                        self.delay_value = float(row['Float'])
-                        time.sleep(self.delay_value)
+            for _, row in df.iterrows():
+                self.process_dialogue(row)
 
         except Exception as e:
-            print(f"Error al leer el archivo: {e}")
+            print(f"Error reading file: {e}")
+
+    def process_dialogue(self, row):
+        condition = row['Condition'].strip()
+        if condition == 'ShowTextBox':
+            self.process_show_text_box(row)
+        elif condition == 'Delay':
+            self.process_delay(row)
+
+    def process_show_text_box(self, row):
+        if 'Text' in row and row['Text'].strip():
+            npc_name = row.get('Name', '').strip()
+            text = row['Text']
+
+            extracted_text = TextUtils.TextUtils.extract_text(text)
+            if extracted_text:
+                processed_text = self.replace_variables(extracted_text)
+                print(f"{npc_name}: {processed_text}")
+                self.dialogues.append((npc_name, processed_text.strip()))
+
+    @staticmethod
+    def process_delay(row):
+        delay_value = float(row['Float'])
+        time.sleep(delay_value)
 
     def replace_variables(self, text):
         player_name = self.game_data_manager.get_player_name() or "Player"
@@ -81,10 +91,10 @@ if __name__ == "__main__":
     dialogue_reader.read_dialogue_csv()
 
     while True:
-        input("Presiona Enter para continuar...")
+        input("Press Enter (Debug Mode).")
         dialogue = dialogue_reader.get_next_dialogue()
         if dialogue is not None:
             print(dialogue)
         else:
-            print("No hay más diálogos.")
+            print("No more dialogs.")
             break

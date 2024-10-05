@@ -1,5 +1,5 @@
 import pygame
-from constant import colors, config, dialogue
+from constant import colors, config, datatables
 from model.dialogueReader import DialogueReader
 from main import AudioManager, GameDataManager
 
