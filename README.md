@@ -1,6 +1,6 @@
 # Digimon World Remake
 
-![Pantalla de Introducción](https://raw.githubusercontent.com/fransolerc/DigimonWorldRemake/assets/ui/Menu/Intro.PNG)
+![Intro](https://raw.githubusercontent.com/fransolerc/DigimonWorldRemake/assets/ui/Menu/Intro.PNG)
 
 
 ## Descripción
