@@ -10,7 +10,7 @@ class DialogueReader:
         self.file_path = file_path
         self.dialogues = []
         self.current_index = 0
-        self.delays = 0.0
+        self.delay_value = 0.0
         self.game_data_manager = game_data_manager_object
 
     def read_dialogue_csv(self):
@@ -40,8 +40,8 @@ class DialogueReader:
                                 self.dialogues.append((npc_name, processed_text.strip()))
 
                     if condition == 'Delay':
-                        self.delays = float(row['Float'])
-                        time.sleep(self.delays)
+                        self.delay_value = float(row['Float'])
+                        time.sleep(self.delay_value)
 
         except Exception as e:
             print(f"Error al leer el archivo: {e}")
