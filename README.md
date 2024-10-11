@@ -3,19 +3,20 @@
 ![Intro](https://github.com/fransolerc/DigimonWorldRemake/blob/main/assets/ui/Menu/Intro.PNG)
 
 
-## Descripción
-**Digimon World Remake** Este proyecto es un remake del clásico videojuego Digimon World (1999) para PlayStation 1, creado como un proyecto personal utilizando Python y Pygame. El objetivo es recrear el universo del juego original con mejoras gráficas y de jugabilidad, manteniendo la esencia nostálgica que hizo popular al título
+## Description
+**Digimon World Remake** This project is a remake of the classic video game Digimon World (1999) for PlayStation 1, created as a personal project using Python and Pygame. The goal is to recreate the universe of the original game with graphical and gameplay improvements while maintaining the nostalgic essence that made the title popular.
 
-## Características
-- Recreación del sistema de batalla y la crianza de Digimon.
-- Gráficos mejorados y diseño de niveles.
-- Contenido adicional y diálogos únicos.
-- Sistema de **DataTables** para manejar datos del juego.
+## Features
+- Recreation of the battle system and Digimon raising.
+- Enhanced graphics and level design.
+- Additional content and unique dialogues.
+- **DataTables** system for handling game data.
 
-## Instalación
-1. Clona el repositorio:
+## Installation
+1. Clone the repository:
    ```bash
    git clone https://github.com/fransolerc/DigimonWorldRemake.git
+   ```
 
 ## Enlaces de interés
 
