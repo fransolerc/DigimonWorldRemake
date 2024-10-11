@@ -3,7 +3,7 @@ import sys
 
 from constant import resources, colors, config
 from main import AudioManager
-import newGame
+import new_game
 
 pygame.init()
 

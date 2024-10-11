@@ -1,7 +1,7 @@
 import pandas as pd
 from constant import datatables
 from item import Item
-from utils import TextUtils
+from utils import text_utils
 
 
 class ItemReader:

@@ -6,9 +6,9 @@ from constant import ROW_CONDITION, ROW_NAME, ROW_TEXT, ROW_FLOAT, ROW_OPERATOR,
     ROW_JUMP_TO_LINE, ROW_SWITCH, ROW_BOOLEAN, ROW_GIVE_ITEMS, ROW_SELECTION, ROW_LOCATION, ROW_ROTATION, \
     ROW_WIDGET_POSITION, ROW_PLAY_SOUND, ROW_DATA_TABLE, CONDITION_SHOW_TEXT_BOX, CONDITION_DELAY, \
     CONDITION_SET_SELECTION
-from model.GameDataManager import GameDataManager
+from model.game_data_manager import GameDataManager
 from model.dialogue import Dialogue
-from utils import TextUtils
+from utils import text_utils
 
 
 class DialogueReader:

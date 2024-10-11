@@ -1,5 +1,5 @@
 import pandas as pd
-from model.DigimonInfo import DigimonInfo
+from model.digimon_info import DigimonInfo
 
 
 class DigimonInfoReader:
