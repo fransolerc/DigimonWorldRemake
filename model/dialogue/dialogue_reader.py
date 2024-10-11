@@ -1,14 +1,8 @@
 import os
 import pandas as pd
-from constant import (
-    ROW_CONDITION, ROW_NAME, ROW_TEXT, ROW_FLOAT, ROW_OPERATOR,
-    ROW_IF_VALUE, ROW_IF_OUTPUT, ROW_JUMP_TO_LINE, ROW_SWITCH,
-    ROW_BOOLEAN, ROW_GIVE_ITEMS, ROW_SELECTION, ROW_LOCATION,
-    ROW_ROTATION, ROW_WIDGET_POSITION, ROW_PLAY_SOUND,
-    ROW_DATA_TABLE
-)
 from model.game_data_manager import GameDataManager
 from dialogue_processor import DialogueProcessor
+from constant import DataTables
 
 
 class DialogueReader:
@@ -25,7 +19,7 @@ class DialogueReader:
 
         try:
             df = pd.read_csv(self.file_path)
-            required_columns = self.get_required_columns()
+            required_columns = DataTables().get_required_columns()
 
             for column in required_columns:
                 if column not in df.columns:
@@ -38,15 +32,6 @@ class DialogueReader:
             print(f"Error reading file: {e}")
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
-
-    @staticmethod
-    def get_required_columns():
-        return [
-            ROW_CONDITION, ROW_NAME, ROW_TEXT, ROW_FLOAT, ROW_OPERATOR,
-            ROW_IF_VALUE, ROW_IF_OUTPUT, ROW_JUMP_TO_LINE, ROW_SWITCH,
-            ROW_BOOLEAN, ROW_GIVE_ITEMS, ROW_SELECTION, ROW_LOCATION,
-            ROW_ROTATION, ROW_WIDGET_POSITION, ROW_PLAY_SOUND, ROW_DATA_TABLE
-        ]
 
     def get_next_dialogue(self):
         if self.current_index < self.read_dialogue_csv_length():

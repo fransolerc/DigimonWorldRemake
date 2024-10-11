@@ -18,7 +18,7 @@ clock = pygame.time.Clock()
 
 
 def start_new_game():
-    intro_dialogue = DialogueReader(constant.datatables.INTRO, game_data_manager)
+    intro_dialogue = DialogueReader(constant.datatables.DataTables.INTRO, game_data_manager)
     intro_dialogue.read_dialogue_csv()
     render_screen(intro_dialogue)
 
