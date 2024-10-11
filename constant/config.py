@@ -7,6 +7,6 @@ FONT_SIZE_SMALL = 32
 
 FONT_TYPE = None
 
-MENU_OPTIONS = ["New Game", "Continue Game"]
+MENU_OPTIONS = ["New Game", "Continue Game", 'Exit']
 
 FPS = 30
