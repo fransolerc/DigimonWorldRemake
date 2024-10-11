@@ -47,7 +47,7 @@ def handle_keydown(event):
 def select_option():
     if selected_option == 0:
         audio_manager.play_button_open()
-        newGame.start_new_game()
+        new_game.start_new_game()
         print("New Game")
     elif selected_option == 1:
         audio_manager.play_button_open()

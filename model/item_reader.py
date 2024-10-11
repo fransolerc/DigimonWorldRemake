@@ -29,8 +29,8 @@ class ItemReader:
                     raise ValueError(f"Missing column in CSV: {column}")
 
             for _, row in df.iterrows():
-                name = TextUtils.TextUtils.extract_text(row['Name Text'])
-                description = TextUtils.TextUtils.extract_text(row['Description'])
+                name = text_utils.TextUtils.extract_text(row['Name Text'])
+                description = text_utils.TextUtils.extract_text(row['Description'])
 
                 item = Item(
                     name=name,

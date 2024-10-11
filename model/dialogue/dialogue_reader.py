@@ -90,7 +90,7 @@ class DialogueReader:
             print(f"Error processing dialogue: {e}")
 
     def process_show_text_box(self, name, text):
-        extracted_text = TextUtils.TextUtils.extract_text(text)
+        extracted_text = text_utils.TextUtils.extract_text(text)
 
         if extracted_text:
             processed_text = self.replace_variables(extracted_text)
@@ -104,7 +104,7 @@ class DialogueReader:
 
         selection_text = dialogue.selection
 
-        selection_options = TextUtils.TextUtils.extract_selection_options(selection_text)
+        selection_options = text_utils.TextUtils.extract_selection_options(selection_text)
 
         print("Please make a selection:")
         for i, (line, option_text) in enumerate(selection_options, start=1):
