@@ -1,2 +1,2 @@
-from .Dialogue import *
-from DialogueReader import *
+from .dialogue import *
+from dialogue_reader import *

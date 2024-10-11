@@ -2,7 +2,7 @@ import pygame
 
 import constant
 from constant import colors, config
-from model.dialogue.DialogueReader import DialogueReader
+from model.dialogue.dialogue_reader import DialogueReader
 from main import AudioManager, GameDataManager
 
 pygame.init()
