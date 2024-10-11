@@ -1,10 +1,8 @@
 class DataTables:
-    # Rutas de los archivos CSV
     INTRO = 'assets/data/datatable/dialogue/Intro.csv'
     ITEM = 'assets/data/datatable/Item/Info.csv'
     DIGIMON_INFO = 'assets/data/datatable/Digimon/Info.csv'
 
-    # Nombres de las columnas
     ROW_CONDITION = 'Condition'
     ROW_NAME = 'Name'
     ROW_TEXT = 'Text'
@@ -20,10 +18,9 @@ class DataTables:
     ROW_LOCATION = 'Location'
     ROW_ROTATION = 'Rotation'
     ROW_WIDGET_POSITION = 'Widget Position'
-    ROW_PLAY_SOUND = 'Play Sound'
+    ROW_PLAY_SOUND = 'play Sound'
     ROW_DATA_TABLE = 'DataTable'
 
-    # Condiciones
     CONDITION_SHOW_TEXT_BOX = 'ShowTextBox'
     CONDITION_DELAY = 'Delay'
     CONDITION_SET_SELECTION = 'set Selection'

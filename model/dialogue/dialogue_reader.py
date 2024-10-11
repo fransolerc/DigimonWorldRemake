@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 from model.game_data_manager import GameDataManager
-from dialogue_processor import DialogueProcessor
 from constant import DataTables
 
 
@@ -10,6 +9,7 @@ class DialogueReader:
         self.file_path = file_path
         self.current_index = 0
         self.game_data_manager = game_data_manager_object
+        from model.dialogue.dialogue_processor import DialogueProcessor
         self.processor = DialogueProcessor(self, self.game_data_manager)
 
     def read_dialogue_csv(self):
@@ -65,6 +65,17 @@ class DialogueReader:
         except Exception as e:
             print(f"Error reading file: {e}")
             return 0
+
+    def get_current_line(self):
+        try:
+            df = pd.read_csv(self.file_path)
+            if self.current_index < len(df):
+                return df.iloc[self.current_index]
+            else:
+                return None
+        except Exception as e:
+            print(f"Error reading current dialogue line: {e}")
+            return None
 
 
 if __name__ == "__main__":

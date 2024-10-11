@@ -1,8 +1,8 @@
 import time
 
+from constant import DataTables
 from model.dialogue import Dialogue
 from utils.text_utils import TextUtils
-from constant import dialogue
 
 
 class DialogueProcessor:
@@ -14,11 +14,11 @@ class DialogueProcessor:
         try:
             dialogue = self.create_dialogue(row)
 
-            if dialogue.condition == datatables.DataTables.CONDITION_SHOW_TEXT_BOX:
+            if dialogue.condition == DataTables.CONDITION_SHOW_TEXT_BOX:
                 self.process_show_text_box(dialogue.name, dialogue.text)
-            elif dialogue.condition == datatables.DataTables.CONDITION_DELAY:
+            elif dialogue.condition == DataTables.CONDITION_DELAY:
                 self.process_delay(dialogue.float_delay)
-            elif dialogue.condition == datatables.DataTables.CONDITION_SET_SELECTION:
+            elif dialogue.condition == DataTables.CONDITION_SET_SELECTION:
                 self.process_set_selection(dialogue)
 
         except ValueError as e:
@@ -27,23 +27,23 @@ class DialogueProcessor:
     @staticmethod
     def create_dialogue(row):
         return Dialogue(
-            condition=row[datatables.DataTables.ROW_CONDITION].strip(),
-            name=row.get(datatables.DataTables.ROW_NAME, ''),
-            text=row.get(datatables.DataTables.ROW_TEXT, ''),
-            operator=row.get(datatables.DataTables.ROW_OPERATOR, ''),
-            if_value=row.get(datatables.DataTables.ROW_IF_VALUE, ''),
-            if_output=row.get(datatables.DataTables.ROW_IF_OUTPUT, ''),
-            jump_to_line=int(row.get(datatables.DataTables.ROW_JUMP_TO_LINE, 0)),
-            switch=row.get(datatables.DataTables.ROW_SWITCH, ''),
-            boolean=bool(row.get(datatables.DataTables.ROW_BOOLEAN, False)),
-            float_delay=float(row.get(datatables.DataTables.ROW_FLOAT, 0.0)),
-            give_items=row.get(datatables.DataTables.ROW_GIVE_ITEMS, ''),
-            selection=row.get(datatables.DataTables.ROW_SELECTION, ''),
-            location=row.get(datatables.DataTables.ROW_LOCATION, ''),
-            rotation=row.get(datatables.DataTables.ROW_ROTATION, ''),
-            widget_position=row.get(datatables.DataTables.ROW_WIDGET_POSITION, ''),
-            play_sound=row.get(datatables.DataTables.ROW_PLAY_SOUND, ''),
-            data_table=row.get(datatables.DataTables.ROW_DATA_TABLE, '')
+            condition=row[DataTables.ROW_CONDITION].strip(),
+            name=row.get(DataTables.ROW_NAME, ''),
+            text=row.get(DataTables.ROW_TEXT, ''),
+            operator=row.get(DataTables.ROW_OPERATOR, ''),
+            if_value=row.get(DataTables.ROW_IF_VALUE, ''),
+            if_output=row.get(DataTables.ROW_IF_OUTPUT, ''),
+            jump_to_line=int(row.get(DataTables.ROW_JUMP_TO_LINE, 0)),
+            switch=row.get(DataTables.ROW_SWITCH, ''),
+            boolean=bool(row.get(DataTables.ROW_BOOLEAN, False)),
+            float_delay=float(row.get(DataTables.ROW_FLOAT, 0.0)),
+            give_items=row.get(DataTables.ROW_GIVE_ITEMS, ''),
+            selection=row.get(DataTables.ROW_SELECTION, ''),
+            location=row.get(DataTables.ROW_LOCATION, ''),
+            rotation=row.get(DataTables.ROW_ROTATION, ''),
+            widget_position=row.get(DataTables.ROW_WIDGET_POSITION, ''),
+            play_sound=row.get(DataTables.ROW_PLAY_SOUND, ''),
+            data_table=row.get(DataTables.ROW_DATA_TABLE, '')
         )
 
     def process_show_text_box(self, name, text):

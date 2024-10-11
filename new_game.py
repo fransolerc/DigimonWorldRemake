@@ -2,7 +2,7 @@ import pygame
 
 import constant
 from constant import colors, config
-from model.dialogue.dialogue_reader import DialogueReader
+from model.dialogue import DialogueReader
 from main import AudioManager, GameDataManager
 
 pygame.init()
@@ -18,9 +18,9 @@ clock = pygame.time.Clock()
 
 
 def start_new_game():
-    intro_dialogue = DialogueReader(constant.datatables.DataTables.INTRO, game_data_manager)
+    intro_dialogue = DialogueReader(constant.dialogue.DataTables.INTRO, game_data_manager)
     intro_dialogue.read_dialogue_csv()
-    render_screen(intro_dialogue)
+    render_screen(intro_dialogue.read_dialogue_csv())
 
     running = True
     while running:

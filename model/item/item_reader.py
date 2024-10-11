@@ -1,5 +1,6 @@
 import pandas as pd
-from constant import dialogue
+
+from constant import DataTables
 from constant.item import ItemConstants
 from item import Item
 from utils import text_utils
@@ -32,8 +33,8 @@ class ItemReader:
                     raise ValueError(f"Missing column in CSV: {column}")
 
             for _, row in df.iterrows():
-                name = text_utils.TextUtils.extract_text(row['Name Text'])
-                description = text_utils.TextUtils.extract_text(row['Description'])
+                name = text_utils.TextUtils.extract_text(row[ItemConstants.NAME_TEXT])
+                description = text_utils.TextUtils.extract_text(row[ItemConstants.DESCRIPTION])
 
                 item = Item(
                     name=name,
@@ -63,11 +64,11 @@ class ItemReader:
                 self.items_list.append(item)
 
         except FileNotFoundError:
-            print(f"Error: {datatables.DataTables.ITEM} not exists.")
+            print(f"Error: {DataTables.ITEM} not exists.")
         except pd.errors.EmptyDataError:
             print("Error: CSV Empty.")
         except Exception as e:
-            print(f"Error al leer el archivo CSV: {e}")
+            print(f"Error reading CSV: {e}")
 
     def get_item_by_index(self, index):
         if 0 <= index < len(self.items_list):
